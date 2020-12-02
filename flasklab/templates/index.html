@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSTI - Lab</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" type="text/css">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</head>
+<body>
+    <div class="container" style="text-align: center; margin-top: 5%;">
+        <div class="row">
+		    <div class="col-md-12">
+				<h1>Flask SSTI LAB</h1>
+                <a class="btn btn-primary btn-lg" href="/level/1">Start</a>
+				<br />
+			    <table class="table table-striped table-hover" style="margin-top: 15px;">
+				<thead>
+					<tr>
+						<th>
+							Level
+						</th>
+						<th>
+							WAF
+						</th>
+						<th>
+							Target
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							1
+						</td>
+						<td>
+							no waf
+						</td>
+						<td>
+							flag
+						</td>
+					</tr>
+                    <tr>
+						<td>
+							2
+						</td>
+						<td>
+							bl['\{\{']
+						</td>
+						<td>
+							flag
+						</td>
+					</tr>
+                    <tr>
+						<td>
+							3
+						</td>
+						<td>
+							no waf and blind
+						</td>
+						<td>
+							flag
+						</td>
+					</tr>
+                    <tr>
+						<td>
+							4
+						</td>
+						<td>
+							bl['[', ']']
+						</td>
+						<td>
+							flag
+						</td>
+					</tr>
+                    <tr>
+						<td>
+							5
+						</td>
+						<td>
+							bl['\'', '"']
+						</td>
+						<td>
+							flag
+						</td>
+					</tr>
+                    <tr>
+						<td>
+							6
+						</td>
+						<td>
+							bl['_']
+						</td>
+						<td>
+							flag
+						</td>
+					</tr>
+                    <tr>
+						<td>
+							7
+						</td>
+						<td>
+							bl['.']
+						</td>
+						<td>
+							flag
+						</td>
+					</tr>
+                    <tr>
+						<td>
+							8
+						</td>
+						<td>
+							bl["class", "arg", "form", "value", "data", "request", "init", "global", "open", "mro", "base", "attr"]
+						</td>
+						<td>
+							flag
+						</td>
+					</tr>
+                    <tr>
+						<td>
+							9
+						</td>
+						<td>
+							bl['0-9']
+						</td>
+						<td>
+							flag
+						</td>
+					</tr>
+                    <tr>
+						<td>
+							10
+						</td>
+						<td>
+							set config = None
+						</td>
+						<td>
+							get config
+						</td>
+					</tr>
+                    <tr class="table-info">
+						<td>
+							11
+						</td>
+						<td>
+							bl['\'', '"', '+', 'request', '.', '[', ']']
+						</td>
+						<td>
+							flag
+						</td>
+					</tr>
+                    <tr class="table-info">
+						<td>
+							12
+						</td>
+						<td>
+							bl['_', '.', '0-9', '\\', '\'', '"', '[', ']']
+						</td>
+						<td>
+							flag
+						</td>
+					</tr>
+                    <tr class="table-info">
+						<td>
+							13
+						</td>
+						<td>
+							bl['_', '.', '\\', '\'', '"', 'request', '+', 'class', 'init', 'arg', 'config', 'app', 'self', '[', ']']
+						</td>
+						<td>
+							flag
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		    </div>
+	    </div>
+    </div>
+</body>
+</html>

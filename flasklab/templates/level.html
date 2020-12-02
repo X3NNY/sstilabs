@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSTI - Lab</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" type="text/css">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <div class="panel panel-primary">
+                <div class="panel-heading" style="text-align: center">
+                    <div class="fadeIn first">
+                        <h2>Welcome To SSTILab - Level {{ level }}</h2>
+                    </div>
+                    <form onsubmit="return ssti()">
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+                                <input style="width:120px" type='text' class="form-control" name="code" placeholder="ssti here" />
+                                <input style="width:10px" class="form-control" type="submit" value="Submit"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <hr>
+                <div class="panel-body" style="text-align:left;">
+                    <br />
+                    <pre style="text-align: center;" id="res">
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function get_level() {
+            let url = window.location.href;
+            url = url.split('?')[0]
+            return url.split('/').pop()
+        }
+
+        function ssti() {
+            $.post({
+                url: `/level/${get_level()}`,
+                contentType: "application/x-www-form-urlencoded",
+                data: `code=${encodeURIComponent($("input[name='code']").val())}`,
+                success: res => {
+                    $("#res").html(res)
+                }
+            });
+            return false
+        }
+    </script>
+</body>
+</html>
