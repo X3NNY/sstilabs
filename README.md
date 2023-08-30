@@ -31,6 +31,7 @@
 * It will run on port 5000, for safety, don't run as `root`
 
 * 它将运行在5000端口上,为了安全起见,请不要使用`root`用户运行
+* 你还可以在NSSCTF直接开启本环境[ssti-flask-labs](https://www.nssctf.cn/problem/13)
 
 ### ejs-lab
 
